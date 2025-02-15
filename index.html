@@ -28,9 +28,13 @@
             justify-content: center;
             align-items: center;
             border: 5px solid black; /* Increased border thickness */
-            font-size: 6vw; /* Dynamic font size based on viewport width */
+            font-size: 6vw; /* Default font size */
             font-weight: bold;
             text-align: center;
+        }
+        .token-number {
+            font-size: 28vw; /* Token number is twice as large */
+            font-weight: bold;
         }
     </style>
 </head>
@@ -62,7 +66,7 @@
         function displayData(data) {
             let content = `<p>${data.doctor_name}</p>`;
             content += `<p>Token Number</p>`;
-            content += `<p>${data.token_number}</p>`;
+            content += `<p class="token-number">${data.token_number}</p>`; // Increased font size for token number
 
             // Display "Origin" only if it's not empty
             if (data.origin && data.origin.trim() !== "") {
@@ -72,7 +76,7 @@
             document.getElementById("data-display").innerHTML = content;
         }
 
-        // Fetch data initially and refresh every 30 seconds
+        // Fetch data initially and refresh every 10 seconds
         fetchData();
         setInterval(fetchData, 30000);
     </script>
